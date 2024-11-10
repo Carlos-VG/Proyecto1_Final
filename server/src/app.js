@@ -13,6 +13,9 @@ const app = express();
  * @brief Middleware para el manejo de JSON
  */
 app.use(morgan('dev'));
+app.use(cors({
+    origin: 'http://localhost:5173' 
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
