@@ -6,24 +6,23 @@ const cleanData = require('../../dataProcessing/cleanData/cleanRows');
 const router = express.Router();
 
 const desiredColumns = [
-    'service_name',
-    'servicesubcategory_name',
+    'id',
+    'priority',
+    'impact',
+    'origin',
+    'urgency',
+    'request_type',
     'time_spent',
-    'start_date',
-    'last_update',
-    'close_date',
-    'assignment_date',
-    'resolution_date'
-];
+];//TODO: tipo de resolucion
 
-const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script3.py');
+//const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script1.py');
 
 router.post('/', getAll);
 
 async function getAll(req, res, next) {
     try {
         const items = await controller.getAll();
-        const cleanedData = await cleanData(items, desiredColumns, true, pythonScriptPath);
+        const cleanedData = await cleanData(items, desiredColumns);
         answers.success(req, res, cleanedData, 200);
     } catch (error) {
         answers.error(req, res, 'error', 500);
