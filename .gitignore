@@ -1,0 +1,149 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Logs
+logs
+*.log
+logs/*.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# Yarn Integrity
+.yarn-integrity
+
+# dotenv environment files
+.env
+.env.test
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+.nyc_output/
+jest-html-reports/
+jest-report.html
+cypress/screenshots/
+cypress/videos/
+
+# Build and output directories
+dist/
+lib/
+build/
+public/
+out/
+.release/
+.staging/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.sass-cache/
+.storybook/
+.vscode/
+.idea/
+
+# Lint and formatter caches
+.eslintcache
+.prettiercache
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional lock files for package managers
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Firebase and GCP
+.firebase/
+firestore.rules
+firestore.indexes.json
+
+# Webpack/Babel/Parcel/ESBuild
+.cache-loader/
+.babel_cache/
+.babelrc.js
+.babelrc.json
+.babelrc
+*.babelrc
+.esbuild
+
+# Miscellaneous
+*.code-workspace
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# IDE specific files
+*.code-workspace
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# MacOS files
+.DS_Store
+
+# React-specific files
+node_modules/
+build/
+.cache/
+public/static/
+
+# Storybook
+.storybook/
+storybook-static/
+
+# VS Code workspace history
+.history/
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+.docker/
+
+# Serverless
+.serverless/
+
+# Custom env files
+.env.production
+.env.development
+.env.staging
+.env.uat
+.env.backup
+
+# Firebase
+firebase-debug.log
+.firebaserc
+
+# Svelte (if applicable)
+.svelte-kit/
+.svelte-config/
+
+# Next.js
+.next/
+next.config.js
+next-env.d.ts
