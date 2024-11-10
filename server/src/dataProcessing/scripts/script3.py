@@ -89,10 +89,10 @@ def process_user_satisfaction(data):
 
 
 def main():
-    input_data = sys.stdin.read()
+    input_data = sys.stdin.read().encode("utf-8").decode("utf-8")
     data = json.loads(input_data)
     result = process_user_satisfaction(data)
-    print(json.dumps(result))
+    print(json.dumps(result, ensure_ascii=False))
 
 
 if __name__ == "__main__":
