@@ -6,7 +6,7 @@ const cleanData = require('../../dataProcessing/cleanData/cleanRows');
 const router = express.Router();
 
 const desiredColumns = [
-    'id',
+    'ref',
     'priority',
     'impact',
     'origin',
@@ -15,14 +15,14 @@ const desiredColumns = [
     'time_spent',
 ];//TODO: tipo de resolucion
 
-//const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script1.py');
+const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script1.py');
 
 router.post('/', getAll);
 
 async function getAll(req, res, next) {
     try {
         const items = await controller.getAll();
-        const cleanedData = await cleanData(items, desiredColumns);
+        const cleanedData = await cleanData(items, desiredColumns, true, pythonScriptPath);
         answers.success(req, res, cleanedData, 200);
     } catch (error) {
         answers.error(req, res, 'error', 500);
