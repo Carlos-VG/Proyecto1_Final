@@ -14,26 +14,26 @@ def analyze_ticket_data(json_data):
     #avg_resolution_time_dict = avg_resolution_time.to_dict(orient="records")
 
     # Calcular tiempo promedio de resolución para cada valor de priority
-    avg_time_by_priority = df.groupby("priority")["time_spent"].mean().to_dict()
+    avg_time_by_priority = df.groupby("priority")["time_spent"].mean().round(2).to_dict()
 
     # Calcular tiempo promedio de resolución para cada valor de request_type
-    avg_time_by_request_type = df.groupby("request_type")["time_spent"].mean().to_dict()
+    avg_time_by_request_type = df.groupby("request_type")["time_spent"].mean().round(2).to_dict()
 
     # Calcular tiempo promedio de resolución para cada valor de urgency
-    avg_time_by_urgency = df.groupby("urgency")["time_spent"].mean().to_dict()
+    avg_time_by_urgency = df.groupby("urgency")["time_spent"].mean().round(2).to_dict()
 
     # Calcular tiempo promedio de resolución para cada valor de origin
-    avg_time_by_origin = df.groupby("origin")["time_spent"].mean().to_dict()
+    avg_time_by_origin = df.groupby("origin")["time_spent"].mean().round(2).to_dict()
 
     # Calcular tiempo promedio de resolución para cada valor de impact
-    avg_time_by_impact = df.groupby("impact")["time_spent"].mean().to_dict()
+    avg_time_by_impact = df.groupby("impact")["time_spent"].mean().round(2).to_dict()
 
     # Identificar el tipo de resolución más frecuente
     request_type_counts = df["request_type"].value_counts()
     most_frequent_request_type = request_type_counts.idxmax()
 
     # Calcular tiempo medio de resolución general
-    overall_avg_time_spent = df["time_spent"].mean()
+    overall_avg_time_spent = df["time_spent"].mean().round(2)
 
     # Identificar tickets con tiempo de resolución superior al promedio
     improvement_opportunities = df[df["time_spent"] > overall_avg_time_spent].to_dict(orient="records")

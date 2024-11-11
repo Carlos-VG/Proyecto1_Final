@@ -5,15 +5,12 @@ const request = 'UserRequest';
 
 const desiredColumns = [
     'ref',
-    'priority',
-    'impact',
-    'origin',
-    'urgency',
-    'request_type',
+    'org_id',
+    'org_name',
     'time_spent',
 ];
 
-const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script1.py');
+const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script4.py');
 
 module.exports = function (centralAccessInjected) {
     let controller = centralAccessInjected;
