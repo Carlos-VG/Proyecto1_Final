@@ -9,6 +9,8 @@ const display2 = require('./modules/display2/routes');
 const display3 = require('./modules/display3/routes');
 const display4 = require('./modules/display4/routes');
 const display5 = require('./modules/display5/routes');
+const display6 = require('./modules/display6/routes');
+
 
 const app = express();
 
@@ -30,6 +32,7 @@ app.use('/api/display2', display2);
 app.use('/api/display3', display3);
 app.use('/api/display4', display4);
 app.use('/api/display5', display5);
+app.use('/api/display6', display6);
 app.use(error);
 
 module.exports = app;
