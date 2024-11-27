@@ -38,8 +38,11 @@ def main():
         filter_type = None
         
     # Leemos los datos de entrada en JSON desde stdin
-    input_data = sys.stdin.read()
-    data = json.loads(input_data)
+    input_data = json.load(sys.stdin)
+    # Leer los filtros enviados en la entrada estándar
+    filters = input_data.get('filters', [])
+    # Eliminar la clave 'filters' del input_data antes de procesar
+    data = input_data.get('data', input_data)
     
     # Calculamos la tasa de cierre de tickets por agente
     result = calculate_closure_rate(data)

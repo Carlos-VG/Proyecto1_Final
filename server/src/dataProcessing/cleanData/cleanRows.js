@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-async function cleanData(data, columns, usePython = false, pythonScriptPath = '') {
+async function cleanData(data, columns, usePython = false, pythonScriptPath = '', filters = []) {
     try {
         const cleanedDataArray = [];
 
@@ -24,7 +24,8 @@ async function cleanData(data, columns, usePython = false, pythonScriptPath = ''
         // Ejecuta el script de Python si se necesita
         if (usePython && pythonScriptPath) {
             try {
-                return await runPythonScript(cleanedDataArray, pythonScriptPath);
+                // Si no se proporcionan filtros, se pasa un arreglo vacío
+                return await runPythonScript(cleanedDataArray, pythonScriptPath, filters || []);
             } catch (error) {
                 console.error('Error al ejecutar el script de Python:', error);
                 throw new Error('Error al procesar datos con Python');
@@ -38,28 +39,39 @@ async function cleanData(data, columns, usePython = false, pythonScriptPath = ''
     }
 }
 
-function runPythonScript(data, pythonScriptPath) {
+function runPythonScript(data, pythonScriptPath, filters) {
     return new Promise((resolve, reject) => {
         const pythonProcess = spawn('python', [pythonScriptPath]);
 
-        // Enviar los datos JSON al script de Python
-        pythonProcess.stdin.write(JSON.stringify(data));
+        // Prepara los datos con filtros opcionales
+        const payload = {
+            data,
+            filters: filters.length ? filters : []  // Asegura que los filtros sean un arreglo vacío si no se proporcionan
+        };
+
+        pythonProcess.stdin.write(JSON.stringify(payload));
         pythonProcess.stdin.end();
 
         let result = '';
+        let errorLog = '';
+
         pythonProcess.stdout.on('data', (data) => {
             result += data.toString();
         });
 
         pythonProcess.stderr.on('data', (data) => {
-            console.error(`Error: ${data}`);
+            errorLog += data.toString();
         });
 
         pythonProcess.on('close', (code) => {
             if (code === 0) {
-                resolve(JSON.parse(result));
+                try {
+                    resolve(JSON.parse(result));
+                } catch (error) {
+                    reject(new Error(`Error al parsear JSON de Python: ${error.message}\nSalida de Python: ${result}`));
+                }
             } else {
-                reject(new Error(`El proceso de Python finalizó con código ${code}`));
+                reject(new Error(`Python terminó con código ${code}. Log de error:\n${errorLog}`));
             }
         });
     });

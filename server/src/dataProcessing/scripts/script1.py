@@ -2,7 +2,7 @@ import sys
 import pandas as pd
 import json
 
-def analyze_ticket_data(json_data):
+def analyze_ticket_data(json_data, filters):
     # Convertir los datos JSON a un DataFrame
     df = pd.DataFrame(json_data)
 
@@ -12,6 +12,7 @@ def analyze_ticket_data(json_data):
     # Función para calcular métricas generales
     def calculate_metrics(data):
         return {
+            "request_count": len(data),
             "avg_time_by_priority": data.groupby("priority")["time_spent"].mean().round(2).to_dict(),
             "avg_time_by_request_type": data.groupby("request_type")["time_spent"].mean().round(2).to_dict(),
             "avg_time_by_urgency": data.groupby("urgency")["time_spent"].mean().round(2).to_dict(),
@@ -24,34 +25,18 @@ def analyze_ticket_data(json_data):
     # Resultados generales
     overall_metrics = calculate_metrics(df)
 
-    # Calcular métricas por org_name
-    metrics_by_org = {
-        org: calculate_metrics(group) for org, group in df.groupby("org_name")
-    }
-
-    # Calcular métricas por service_name
-    metrics_by_service = {
-        service: calculate_metrics(group) for service, group in df.groupby("service_name")
-    }
-
-    # Calcular métricas por operational_status
-    metrics_by_status = {
-        status: calculate_metrics(group) for status, group in df.groupby("operational_status")
-    }
-    
-    # Calcular métricas por team_id_friendlyname
-    # metrics_by_team = {
-    #     team: calculate_metrics(group) for team, group in df.groupby("team_id_friendlyname")
-    # }
-
-    # Organizar los resultados en un diccionario
+    # Diccionario para almacenar las métricas por columna filtrada
     result = {
         "overall_metrics": overall_metrics,
-        "metrics_by_org": metrics_by_org,
-        "metrics_by_service": metrics_by_service,
-        "metrics_by_status": metrics_by_status,
-        #"metrics_by_team": metrics_by_team
     }
+
+    # Iterar sobre los filtros y generar métricas solo para las columnas solicitadas
+    for filter_column in filters:
+        if filter_column in df.columns:  # Asegúrate de que la columna exista en el DataFrame
+            # Generar las métricas para esta columna de filtro
+            result[f"metrics_by_{filter_column}"] = {
+                group_value: calculate_metrics(group) for group_value, group in df.groupby(filter_column)
+            }
 
     # Devolver el resultado en formato JSON
     return result
@@ -59,7 +44,15 @@ def analyze_ticket_data(json_data):
 if __name__ == "__main__":
     # Leer los datos JSON de stdin
     input_data = json.load(sys.stdin)
+
+    # Leer los filtros enviados en la entrada estándar
+    filters = input_data.get('filters', [])
+
+    # Eliminar la clave 'filters' del input_data antes de procesar
+    input_data = input_data.get('data', input_data)
+
     # Procesar los datos
-    output_data = analyze_ticket_data(input_data)
+    output_data = analyze_ticket_data(input_data, filters)
+
     # Escribir el resultado en formato JSON en stdout
     print(json.dumps(output_data, indent=4))

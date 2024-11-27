@@ -88,12 +88,14 @@ def process_user_satisfaction(data):
     }
 
 
-def main():
-    input_data = sys.stdin.read()
-    data = json.loads(input_data)
-    result = process_user_satisfaction(data)
-    print(json.dumps(result))
-
-
 if __name__ == "__main__":
-    main()
+    # Leer los datos JSON de stdin
+    input_data = json.load(sys.stdin)
+    # Leer los filtros enviados en la entrada estándar
+    filters = input_data.get('filters', [])
+    # Eliminar la clave 'filters' del input_data antes de procesar
+    input_data = input_data.get('data', input_data)
+    # Procesar los datos
+    output_data = process_user_satisfaction(input_data)
+    # Escribir el resultado en formato JSON en stdout
+    print(json.dumps(output_data, indent=4))

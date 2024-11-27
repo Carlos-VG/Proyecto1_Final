@@ -34,7 +34,11 @@ def analyze_organization_data(json_data):
 if __name__ == "__main__":
     # Leer los datos JSON de stdin
     input_data = json.load(sys.stdin)
+    # Leer los filtros enviados en la entrada estándar
+    filters = input_data.get('filters', [])
+    # Eliminar la clave 'filters' del input_data antes de procesar
+    input_data = input_data.get('data', input_data)
     # Procesar los datos
     output_data = analyze_organization_data(input_data)
     # Escribir el resultado en formato JSON en stdout
-    print(json.dumps(output_data))
+    print(json.dumps(output_data, indent=4))

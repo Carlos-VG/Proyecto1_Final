@@ -24,9 +24,12 @@ def main():
     else:
         filter_type = None
 
-    # Leemos los datos de entrada que provienen de la solicitud
-    input_data = sys.stdin.read()
-    data = json.loads(input_data)
+    # Leemos los datos de entrada en JSON desde stdin
+    input_data = json.load(sys.stdin)
+    # Leer los filtros enviados en la entrada estándar
+    filters = input_data.get('filters', [])
+    # Eliminar la clave 'filters' del input_data antes de procesar
+    data = input_data.get('data', input_data)
     
     # Llamamos a la función que cuenta los estados
     result = count_requirements_by_status(data, filter_type)
