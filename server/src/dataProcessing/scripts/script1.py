@@ -9,47 +9,49 @@ def analyze_ticket_data(json_data):
     # Convertir el campo time_spent a numérico
     df["time_spent"] = pd.to_numeric(df["time_spent"], errors="coerce")
 
-    # Calcular tiempo promedio de resolución por tipo de solicitud y otros factores combinados
-    #avg_resolution_time = df.groupby(["request_type", "priority", "urgency", "origin", "impact"])["time_spent"].mean().reset_index()
-    #avg_resolution_time_dict = avg_resolution_time.to_dict(orient="records")
+    # Función para calcular métricas generales
+    def calculate_metrics(data):
+        return {
+            "avg_time_by_priority": data.groupby("priority")["time_spent"].mean().round(2).to_dict(),
+            "avg_time_by_request_type": data.groupby("request_type")["time_spent"].mean().round(2).to_dict(),
+            "avg_time_by_urgency": data.groupby("urgency")["time_spent"].mean().round(2).to_dict(),
+            "avg_time_by_origin": data.groupby("origin")["time_spent"].mean().round(2).to_dict(),
+            "avg_time_by_impact": data.groupby("impact")["time_spent"].mean().round(2).to_dict(),
+            "most_frequent_request_type": data["request_type"].value_counts().idxmax(),
+            "overall_avg_time_spent": data["time_spent"].mean().round(2)
+        }
 
-    # Calcular tiempo promedio de resolución para cada valor de priority
-    avg_time_by_priority = df.groupby("priority")["time_spent"].mean().round(2).to_dict()
+    # Resultados generales
+    overall_metrics = calculate_metrics(df)
 
-    # Calcular tiempo promedio de resolución para cada valor de request_type
-    avg_time_by_request_type = df.groupby("request_type")["time_spent"].mean().round(2).to_dict()
+    # Calcular métricas por org_name
+    metrics_by_org = {
+        org: calculate_metrics(group) for org, group in df.groupby("org_name")
+    }
 
-    # Calcular tiempo promedio de resolución para cada valor de urgency
-    avg_time_by_urgency = df.groupby("urgency")["time_spent"].mean().round(2).to_dict()
+    # Calcular métricas por service_name
+    metrics_by_service = {
+        service: calculate_metrics(group) for service, group in df.groupby("service_name")
+    }
 
-    # Calcular tiempo promedio de resolución para cada valor de origin
-    avg_time_by_origin = df.groupby("origin")["time_spent"].mean().round(2).to_dict()
-
-    # Calcular tiempo promedio de resolución para cada valor de impact
-    avg_time_by_impact = df.groupby("impact")["time_spent"].mean().round(2).to_dict()
-
-    # Identificar el tipo de resolución más frecuente
-    request_type_counts = df["request_type"].value_counts()
-    most_frequent_request_type = request_type_counts.idxmax()
-
-    # Calcular tiempo medio de resolución general
-    overall_avg_time_spent = df["time_spent"].mean().round(2)
-
-    # Identificar tickets con tiempo de resolución superior al promedio
-    improvement_opportunities = df[df["time_spent"] > overall_avg_time_spent].to_dict(orient="records")
+    # Calcular métricas por operational_status
+    metrics_by_status = {
+        status: calculate_metrics(group) for status, group in df.groupby("operational_status")
+    }
+    
+    # Calcular métricas por team_id_friendlyname
+    # metrics_by_team = {
+    #     team: calculate_metrics(group) for team, group in df.groupby("team_id_friendlyname")
+    # }
 
     # Organizar los resultados en un diccionario
     result = {
-        # "avg_resolution_time": avg_resolution_time_dict,
-        "avg_time_by_priority": avg_time_by_priority,
-        "avg_time_by_request_type": avg_time_by_request_type,
-        "avg_time_by_urgency": avg_time_by_urgency,
-        "avg_time_by_origin": avg_time_by_origin,
-        "avg_time_by_impact": avg_time_by_impact,
-        "most_frequent_request_type": most_frequent_request_type,
-        "overall_avg_time_spent": overall_avg_time_spent,
-        "improvement_opportunities": improvement_opportunities
-    } 
+        "overall_metrics": overall_metrics,
+        "metrics_by_org": metrics_by_org,
+        "metrics_by_service": metrics_by_service,
+        "metrics_by_status": metrics_by_status,
+        #"metrics_by_team": metrics_by_team
+    }
 
     # Devolver el resultado en formato JSON
     return result
@@ -60,4 +62,4 @@ if __name__ == "__main__":
     # Procesar los datos
     output_data = analyze_ticket_data(input_data)
     # Escribir el resultado en formato JSON en stdout
-    print(json.dumps(output_data))
+    print(json.dumps(output_data, indent=4))

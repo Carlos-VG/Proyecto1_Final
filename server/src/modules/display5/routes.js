@@ -2,14 +2,28 @@ const express = require('express');
 const answers = require('../../red/answers');
 const controller = require('./index');
 const router = express.Router();
+const cleanData = require('../../dataProcessing/cleanData/cleanRows');
+const path = require('path');
 
+const desiredColumns = [
+    'ref',
+    'operational_status',
+    'agent_id',
+    'agent_id_friendlyname',
+    'team_id',
+    'team_id_friendlyname',
+    'time_spent',
+];
+
+const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script5.py');
 
 router.post('/', getAll);
 
 async function getAll(req, res, next) {
     try {
         const items = await controller.getAll();
-        answers.success(req, res, items, 200);
+        const cleanedData = await cleanData(items, desiredColumns, true, pythonScriptPath);
+        answers.success(req, res, cleanedData, 200);
     } catch (error) {
         answers.error(req, res, 'error', 500);
         next(error);
