@@ -5,32 +5,34 @@ const router = express.Router();
 const cleanData = require('../../dataProcessing/cleanData/cleanRows');
 const path = require('path');
 
-
 const desiredColumns = [
     'ref',
-    'operational_status'
+    'operational_status',
+    'org_name',
+    'service_name',
+    'priority',
+    'impact',
+    'urgency',
+    'request_type',
+];
+
+const filters = [
+    'org_name',
+    'service_name',
+    'priority',
+    'impact',
+    'urgency',
+    'request_type',
 ];
 
 const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script2.py');
 
-router.post('/reportedCase', getReportedCase);
-router.post('/resolvedOrClosedCase', getResolvedOrClosedCase);
+router.post('/', getAll);
 
-async function getReportedCase(req, res, next) {
+async function getAll(req, res, next) {
     try {
-        const items = await controller.getAllReportedCases();
-        const cleanedData = await cleanData(items, desiredColumns, true, pythonScriptPath);
-        answers.success(req, res, cleanedData, 200);
-    } catch (error) {
-        answers.error(req, res, 'error', 500);
-        next(error);
-    }
-}
-
-async function getResolvedOrClosedCase(req, res, next) {
-    try {
-        const items = await controller.getAllResolvedOrClosedCases();
-        const cleanedData = await cleanData(items, desiredColumns, true, pythonScriptPath);
+        const items = await controller.getAll();
+        const cleanedData = await cleanData(items, desiredColumns, true, pythonScriptPath, filters);
         answers.success(req, res, cleanedData, 200);
     } catch (error) {
         answers.error(req, res, 'error', 500);
