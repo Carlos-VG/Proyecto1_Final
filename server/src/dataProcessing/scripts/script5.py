@@ -1,61 +1,48 @@
 import sys
+import pandas as pd
 import json
-from collections import defaultdict
 
-# Función para calcular la tasa de cierre de tickets por agente (analista)
-def calculate_closure_rate(data):
-    tickets_by_analyst = defaultdict(lambda: {"closed": 0, "total": 0})
-    
-    for ticket in data:
-        agent_name = ticket.get("agent_id_friendlyname")  # Nombre del agente (analista)
-        status = ticket.get("operational_status")  # Estado del ticket (cerrado o no)
-        
-        # Aseguramos que el agente esté en el diccionario antes de contar
-        if agent_name:
-            tickets_by_analyst[agent_name]["total"] += 1  # Sumar tickets totales por agente
-            if status == "closed":  # Si el estado es 'closed', contar como cerrado
-                tickets_by_analyst[agent_name]["closed"] += 1
+def analyze_closure_rate(json_data):
+    # Convertir los datos JSON a un DataFrame
+    df = pd.DataFrame(json_data)
 
-    # Calculamos la tasa de cierre por agente
-    closure_rates = {}
-    for agent_name, counts in tickets_by_analyst.items():
-        total_tickets = counts["total"]
-        closed_tickets = counts["closed"]
-        closure_rate = closed_tickets / total_tickets if total_tickets > 0 else 0  # Tasa de cierre
-        closure_rates[agent_name] = {
+    # Convertir el campo time_spent a numérico
+    df["time_spent"] = pd.to_numeric(df["time_spent"], errors="coerce")
+
+    # Crear un DataFrame solo con los tickets cerrados
+    closed_df = df[df["operational_status"].isin(["closed"])]
+
+    # Calcular las métricas por analista
+    result = {}
+    for agent, group in df.groupby("agent_id_friendlyname"):
+        closed_group = closed_df[closed_df["agent_id_friendlyname"] == agent]
+        total_tickets = len(group)
+        closed_tickets = len(closed_group)
+        closure_rate = round((closed_tickets / total_tickets * 100), 2) if total_tickets > 0 else 0
+        avg_time_spent = round(closed_group["time_spent"].mean(), 2) if not closed_group.empty else 0
+
+        # Manejar valores NaN o nulos reemplazándolos con 0 o valores apropiados
+        if pd.isna(avg_time_spent):
+            avg_time_spent = 0
+
+        result[agent] = {
             "closed_tickets": closed_tickets,
             "total_tickets": total_tickets,
-            "closure_rate": round(closure_rate * 100, 2)  # Tasa en porcentaje
+            "closure_rate": closure_rate,
+            "avg_closed_time_spent": avg_time_spent
         }
 
-    return closure_rates
+    # Devolver el resultado en formato JSON
+    return result
 
-def main():
-    # Verifica si se pasó un argumento para el tipo de filtro (resolved_closed)
-    if len(sys.argv) > 1:
-        filter_type = sys.argv[1]
-    else:
-        filter_type = None
-        
-    # Leemos los datos de entrada en JSON desde stdin
+if __name__ == "__main__":
+    # Leer los datos JSON de stdin
     input_data = json.load(sys.stdin)
     # Leer los filtros enviados en la entrada estándar
     filters = input_data.get('filters', [])
     # Eliminar la clave 'filters' del input_data antes de procesar
-    data = input_data.get('data', input_data)
-    
-    # Calculamos la tasa de cierre de tickets por agente
-    result = calculate_closure_rate(data)
-    
-    # Filtramos el resultado si es necesario (por ejemplo, 'resolved' o 'closed')
-    if filter_type:
-        if filter_type == "resolved":
-            result = {agent: data for agent, data in result.items() if data["closure_rate"] > 0}
-        elif filter_type == "closed":
-            result = {agent: data for agent, data in result.items() if data["closure_rate"] == 100}
-
-    # Imprimimos el resultado en formato JSON para que se devuelva al servidor
-    print(json.dumps(result, indent=4))
-    
-if __name__ == "__main__":
-    main()
+    input_data = input_data.get('data', input_data)
+    # Procesar los datos
+    output_data = analyze_closure_rate(input_data)
+    # Escribir el resultado en formato JSON en stdout
+    print(json.dumps(output_data, indent=4))
