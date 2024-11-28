@@ -8,5 +8,8 @@ module.exports = {
         url: process.env.CENTRAL_ACCESS_URL,
         username: process.env.CENTRAL_ACCESS_USERNAME,
         password: process.env.CENTRAL_ACCESS_PASSWORD
+    },
+    jwt: {
+        secret: process.env.JWT_SECRET
     }
 }

@@ -3,8 +3,8 @@ const https = require('https');
 const config = require('../config');
 const itopversion = '1.4';
 
-async function getAll(className, key, operation = 'core/get') {
-    const { url, username, password } = config.centralAccess;
+async function getAll(className, key, username, password, operation = 'core/get') {
+    const url = config.centralAccess.url;
 
     const auth = { username, password };
 
