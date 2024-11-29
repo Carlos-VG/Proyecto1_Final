@@ -8,7 +8,7 @@ module.exports = function (centralAccessInjected) {
     }
 
     async function getAll(username, password) {
-        const key = 'SELECT UserRequest WHERE service_id IN (10, 13, 29, 34, 21, 22, 23, 24, 25, 26)'
+        const key = 'SELECT UserRequest'
         return controller.getAll(request, key, username, password);
     }
 

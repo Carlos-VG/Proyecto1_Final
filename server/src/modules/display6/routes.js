@@ -9,11 +9,16 @@ const path = require('path');
 const desiredColumns = [
     'ref',
     'operational_status',
-    'agent_id',
-    'agent_id_friendlyname',
-    'team_id',
-    'team_id_friendlyname',
+    'service_id',
+    'service_name',
+    'org_id',
+    'org_name',
     'time_spent',
+];
+
+const filters = [
+    'service_name',
+    'org_name',
 ];
 
 const pythonScriptPath = path.join(__dirname, '../../dataProcessing/scripts/script6.py');
