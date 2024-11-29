@@ -6,7 +6,9 @@ module.exports = {
     },
     centralAccess: {
         url: process.env.CENTRAL_ACCESS_URL,
-        username: process.env.CENTRAL_ACCESS_USERNAME,
-        password: process.env.CENTRAL_ACCESS_PASSWORD
+        itopversion: process.env.ITOP_VERSION,
+    },
+    jwt: {
+        secret: process.env.JWT_SECRET
     }
 }
