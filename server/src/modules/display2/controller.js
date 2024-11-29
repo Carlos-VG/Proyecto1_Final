@@ -8,9 +8,9 @@ module.exports = function (centralAccessInjected) {
     }
 
     // Consulta para todos los casos reportados
-    async function getAll() {
+    async function getAll(username, password) {
         const key = 'SELECT UserRequest WHERE 1';
-        return controller.getAll(request, key);
+        return controller.getAll(request, key, username, password);
     }
 
     return {

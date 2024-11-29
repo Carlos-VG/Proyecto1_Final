@@ -7,9 +7,9 @@ module.exports = function (centralAccessInjected) {
         controller = require('../../centralAccess/dataFetcher');
     }
 
-    async function getAll() {
+    async function getAll(username, password) {
         const key = 'SELECT UserRequest WHERE operational_status = "resolved" OR operational_status = "closed"'
-        return controller.getAll(request, key);
+        return controller.getAll(request, key, username, password);
     }
 
     return {
