@@ -17,8 +17,12 @@ module.exports = function (centralAccessInjected) {
             if (!data || !data.objects || Object.keys(data.objects).length === 0) {
                 throw new Error('Credenciales incorrectas');
             }
-
-            const token = auth.asignarToken({ username, password });
+            const payload = {
+                username: username,
+                password: password,
+            };
+            console.log('payload', payload);
+            const token = auth.asignarToken(payload);
 
             return token;
 
