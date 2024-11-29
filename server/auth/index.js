@@ -36,7 +36,8 @@ function decodificarCabecera(req) {
     const decodificado = verificarToken(token);
 
     req.user = {
-        username: decodificado.username
+        username: decodificado.username,
+        password: decodificado.password
     };
 
     return decodificado;

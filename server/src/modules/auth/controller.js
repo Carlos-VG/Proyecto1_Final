@@ -10,7 +10,7 @@ module.exports = function (centralAccessInjected) {
 
     async function login(username, password) {
         try {
-            const key = 'SELECT UserRequest WHERE operational_status = "resolved" OR operational_status = "closed"';
+            const key = 'SELECT Organization';
 
             const data = await controller.getAll(request, key, username, password);
 
@@ -21,7 +21,6 @@ module.exports = function (centralAccessInjected) {
                 username: username,
                 password: password,
             };
-            console.log('payload', payload);
             const token = auth.asignarToken(payload);
 
             return token;
