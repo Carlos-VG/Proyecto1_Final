@@ -6,11 +6,16 @@ from collections import defaultdict
 
 def determine_dynamic_ranges(time_spent_values):
     q1, q2, q3 = np.percentile(time_spent_values, [25, 50, 75])
+
     return {
-        "Muy insatisfecho": (q3, np.inf),
-        "Insatisfecho": (q2, q3),
-        "Neutral": (q1, q2),
-        "Satisfecho": (0, q1),
+        "Muy satisfecho": (0, q1 * 0.5),  # Mantén pocos tiempos para "Muy satisfecho"
+        "Satisfecho": (q1 * 0.5, q1 * 1.25),  # Aumenta el rango para "Satisfecho"
+        "Neutral": (q1 * 1.25, q2),  # Neutral sigue hasta la mediana
+        "Insatisfecho": (
+            q2,
+            q3,
+        ),  # Insatisfecho desde la mediana hasta el tercer cuartil
+        "Muy insatisfecho": (q3, np.inf),  # Muy insatisfecho para los valores más altos
     }
 
 
@@ -92,10 +97,10 @@ if __name__ == "__main__":
     # Leer los datos JSON de stdin
     input_data = json.load(sys.stdin)
     # Leer los filtros enviados en la entrada estándar
-    filters = input_data.get('filters', [])
+    filters = input_data.get("filters", [])
     # Eliminar la clave 'filters' del input_data antes de procesar
-    input_data = input_data.get('data', input_data)
+    input_data = input_data.get("data", input_data)
     # Procesar los datos
     output_data = process_user_satisfaction(input_data)
     # Escribir el resultado en formato JSON en stdout
-    print(json.dumps(output_data, indent=4))
+    print(json.dumps(output_data, indent=4, ensure_ascii=False))
