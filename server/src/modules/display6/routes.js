@@ -8,7 +8,7 @@ const path = require('path');
 
 const desiredColumns = [
     'ref',
-    'operational_status',
+    'status',
     'service_id',
     'service_name',
     'org_id',
@@ -28,7 +28,7 @@ router.post('/', security(), getAll);
 async function getAll(req, res, next) {
     try {
         const items = await controller.getAll(req.user.username, req.user.password);
-        const cleanedData = await cleanData(items, desiredColumns, true, pythonScriptPath);
+        const cleanedData = await cleanData(items, desiredColumns, true, pythonScriptPath, filters);
         answers.success(req, res, cleanedData, 200);
     } catch (error) {
         answers.error(req, res, 'error', 500);

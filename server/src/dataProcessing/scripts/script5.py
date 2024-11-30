@@ -45,4 +45,4 @@ if __name__ == "__main__":
     # Procesar los datos
     output_data = analyze_closure_rate(input_data)
     # Escribir el resultado en formato JSON en stdout
-    print(json.dumps(output_data, indent=4))
+    print(json.dumps(output_data, indent=4, ensure_ascii=False))
