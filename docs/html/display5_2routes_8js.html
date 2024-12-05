@@ -89,17 +89,11 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">routes.js File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:af9814a7afe02944c08e8b8d33726e344" id="r_af9814a7afe02944c08e8b8d33726e344"><td class="memItemLeft" align="right" valign="top">function async&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9814a7afe02944c08e8b8d33726e344">getAll</a> (req, res, next)</td></tr>
-<tr class="separator:af9814a7afe02944c08e8b8d33726e344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a81e570c198204c57e1ebcace4f4e6dad" id="r_a81e570c198204c57e1ebcace4f4e6dad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="clean_rows_8js.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81e570c198204c57e1ebcace4f4e6dad">express</a> = require('express')</td></tr>
@@ -120,8 +114,24 @@ Variables</h2></td></tr>
 <tr class="separator:acbf93767530336ecf1d8bda50f98398d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32ea981d87bebb342bed590a76f5dbef" id="r_a32ea981d87bebb342bed590a76f5dbef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="clean_rows_8js.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32ea981d87bebb342bed590a76f5dbef">pythonScriptPath</a> = path.join(__dirname, '../../dataProcessing/scripts/script5.py')</td></tr>
 <tr class="separator:a32ea981d87bebb342bed590a76f5dbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">getAll</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p>Ruta POST para obtener y procesar los datos de las solicitudes de usuario.</p>
+<p>@function</p>
+<p>@async </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>req - El objeto de solicitud que contiene las credenciales del usuario. </td></tr>
+    <tr><td class="paramname">{Object}</td><td>res - El objeto de respuesta para enviar los datos procesados. </td></tr>
+    <tr><td class="paramname">{Function}</td><td>next - El siguiente middleware en la cadena. </td></tr>
+  </table>
+  </dd>
+</dl>
+</td></tr>
 <tr class="memitem:aa4072ba4b6b56b0fb6f4801f17ab2b34" id="r_aa4072ba4b6b56b0fb6f4801f17ab2b34"><td class="memItemLeft" align="right" valign="top">module&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4072ba4b6b56b0fb6f4801f17ab2b34">exports</a> = <a class="el" href="auth_2routes_8js.html#a7f43c2fdec3f5b2b2d8dc821db72c367">router</a></td></tr>
 <tr class="separator:aa4072ba4b6b56b0fb6f4801f17ab2b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9814a7afe02944c08e8b8d33726e344" id="r_af9814a7afe02944c08e8b8d33726e344"><td class="memItemLeft" align="right" valign="top">function async&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9814a7afe02944c08e8b8d33726e344">getAll</a> (req, res, next)</td></tr>
+<tr class="memdesc:af9814a7afe02944c08e8b8d33726e344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para obtener todos los datos de las solicitudes de usuario y procesarlos.  <br /></td></tr>
+<tr class="separator:af9814a7afe02944c08e8b8d33726e344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="af9814a7afe02944c08e8b8d33726e344" name="af9814a7afe02944c08e8b8d33726e344"></a>
@@ -147,6 +157,22 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Función para obtener todos los datos de las solicitudes de usuario y procesarlos. </p>
+<p>@async @function </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>req - El objeto de solicitud que contiene las credenciales del usuario. </td></tr>
+    <tr><td class="paramname">{Object}</td><td>res - El objeto de respuesta para enviar los datos procesados. </td></tr>
+    <tr><td class="paramname">{Function}</td><td>next - El siguiente middleware en la cadena. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">{Error}</td><td>Si ocurre un error al obtener o procesar los datos. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

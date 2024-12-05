@@ -98,6 +98,7 @@ $(function(){ initResizable(false); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af9814a7afe02944c08e8b8d33726e344" id="r_af9814a7afe02944c08e8b8d33726e344"><td class="memItemLeft" align="right" valign="top">function async&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9814a7afe02944c08e8b8d33726e344">getAll</a> (req, res, next)</td></tr>
+<tr class="memdesc:af9814a7afe02944c08e8b8d33726e344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene los datos filtrados y procesados, luego responde con los datos limpios.  <br /></td></tr>
 <tr class="separator:af9814a7afe02944c08e8b8d33726e344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -117,8 +118,10 @@ Variables</h2></td></tr>
 <tr class="memitem:a7f43c2fdec3f5b2b2d8dc821db72c367" id="r_a7f43c2fdec3f5b2b2d8dc821db72c367"><td class="memItemLeft" align="right" valign="top"><a class="el" href="clean_rows_8js.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f43c2fdec3f5b2b2d8dc821db72c367">router</a> = express.Router()</td></tr>
 <tr class="separator:a7f43c2fdec3f5b2b2d8dc821db72c367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbf93767530336ecf1d8bda50f98398d" id="r_acbf93767530336ecf1d8bda50f98398d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="clean_rows_8js.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbf93767530336ecf1d8bda50f98398d">desiredColumns</a></td></tr>
+<tr class="memdesc:acbf93767530336ecf1d8bda50f98398d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Columnas deseadas para filtrar los datos.  <br /></td></tr>
 <tr class="separator:acbf93767530336ecf1d8bda50f98398d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32ea981d87bebb342bed590a76f5dbef" id="r_a32ea981d87bebb342bed590a76f5dbef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="clean_rows_8js.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32ea981d87bebb342bed590a76f5dbef">pythonScriptPath</a> = path.join(__dirname, '../../dataProcessing/scripts/script3.py')</td></tr>
+<tr class="memdesc:a32ea981d87bebb342bed590a76f5dbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ruta del script de Python utilizado para procesar los datos.  <br /></td></tr>
 <tr class="separator:a32ea981d87bebb342bed590a76f5dbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4072ba4b6b56b0fb6f4801f17ab2b34" id="r_aa4072ba4b6b56b0fb6f4801f17ab2b34"><td class="memItemLeft" align="right" valign="top">module&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4072ba4b6b56b0fb6f4801f17ab2b34">exports</a> = <a class="el" href="auth_2routes_8js.html#a7f43c2fdec3f5b2b2d8dc821db72c367">router</a></td></tr>
 <tr class="separator:aa4072ba4b6b56b0fb6f4801f17ab2b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +150,23 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtiene los datos filtrados y procesados, luego responde con los datos limpios. </p>
+<p>@async @function </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>req - El objeto de solicitud. </td></tr>
+    <tr><td class="paramname">{Object}</td><td>res - El objeto de respuesta. </td></tr>
+    <tr><td class="paramname">{Function}</td><td>next - El siguiente middleware en la cadena. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;void&gt;} Responde con los datos limpios. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">{Error}</td><td>Si ocurre un error al obtener o procesar los datos. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -215,6 +235,9 @@ Variables</h2></td></tr>
 <div class="line">    <span class="stringliteral">&#39;resolution_date&#39;</span></div>
 <div class="line">]</div>
 </div><!-- fragment -->
+<p>Columnas deseadas para filtrar los datos. </p>
+<p>@const {Array&lt;string&gt;} desiredColumns - Las columnas que se desean conservar de los datos. </p>
+
 </div>
 </div>
 <a id="aa4072ba4b6b56b0fb6f4801f17ab2b34" name="aa4072ba4b6b56b0fb6f4801f17ab2b34"></a>
@@ -270,6 +293,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ruta del script de Python utilizado para procesar los datos. </p>
+<p>@const {string} pythonScriptPath - La ruta al script de Python que se ejecutará. </p>
 
 </div>
 </div>

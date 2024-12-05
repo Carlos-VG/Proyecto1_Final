@@ -98,6 +98,7 @@ $(function(){ initResizable(false); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af9814a7afe02944c08e8b8d33726e344" id="r_af9814a7afe02944c08e8b8d33726e344"><td class="memItemLeft" align="right" valign="top">function async&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9814a7afe02944c08e8b8d33726e344">getAll</a> (req, res, next)</td></tr>
+<tr class="memdesc:af9814a7afe02944c08e8b8d33726e344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlador para obtener todos los elementos relacionados con solicitudes de usuario y limpiar los datos.  <br /></td></tr>
 <tr class="separator:af9814a7afe02944c08e8b8d33726e344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -149,6 +150,22 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Controlador para obtener todos los elementos relacionados con solicitudes de usuario y limpiar los datos. </p>
+<p>@async @function </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>req - El objeto de solicitud de Express, que contiene los parámetros del usuario. </td></tr>
+    <tr><td class="paramname">{Object}</td><td>res - El objeto de respuesta de Express, que se utiliza para devolver los resultados. </td></tr>
+    <tr><td class="paramname">{Function}</td><td>next - Función de devolución de llamada para pasar el control a la siguiente función de middleware. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">{Error}</td><td>Si ocurre un error al obtener o limpiar los datos. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -256,7 +273,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= [,</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= [</div>
 <div class="line">    <span class="stringliteral">&#39;service_name&#39;</span>,</div>
 <div class="line">    <span class="stringliteral">&#39;operational_status&#39;</span></div>
 <div class="line">]</div>

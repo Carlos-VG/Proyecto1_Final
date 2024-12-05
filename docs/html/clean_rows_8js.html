@@ -98,8 +98,10 @@ $(function(){ initResizable(false); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aeec3b41601994db873238e7cbee677e5" id="r_aeec3b41601994db873238e7cbee677e5"><td class="memItemLeft" align="right" valign="top">function async&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeec3b41601994db873238e7cbee677e5">cleanData</a> (data, columns, usePython=false, <a class="el" href="display1_2routes_8js.html#a32ea981d87bebb342bed590a76f5dbef">pythonScriptPath</a>='', <a class="el" href="display1_2routes_8js.html#aff96fd534d6ddd21a38c3e8e5f9a17c8">filters</a>=[])</td></tr>
+<tr class="memdesc:aeec3b41601994db873238e7cbee677e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limpia los datos eliminando solo las columnas necesarias y opcionalmente procesa los datos con un script de Python.  <br /></td></tr>
 <tr class="separator:aeec3b41601994db873238e7cbee677e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ad9b71a48db8955abcf0f81f36b692" id="r_a29ad9b71a48db8955abcf0f81f36b692"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29ad9b71a48db8955abcf0f81f36b692">runPythonScript</a> (data, <a class="el" href="display1_2routes_8js.html#a32ea981d87bebb342bed590a76f5dbef">pythonScriptPath</a>, <a class="el" href="display1_2routes_8js.html#aff96fd534d6ddd21a38c3e8e5f9a17c8">filters</a>)</td></tr>
+<tr class="memdesc:a29ad9b71a48db8955abcf0f81f36b692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ejecuta un script de Python para procesar los datos y retornar el resultado.  <br /></td></tr>
 <tr class="separator:a29ad9b71a48db8955abcf0f81f36b692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -144,6 +146,25 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Limpia los datos eliminando solo las columnas necesarias y opcionalmente procesa los datos con un script de Python. </p>
+<p>@async @function cleanData </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>data - Los datos a limpiar, que contienen objetos con campos a filtrar. </td></tr>
+    <tr><td class="paramname">{Array&lt;string&gt;}</td><td>columns - Las columnas que deben mantenerse en los objetos de datos. </td></tr>
+    <tr><td class="paramname">{boolean}</td><td>[usePython=false] - Si es verdadero, se ejecuta un script de Python para procesar los datos. </td></tr>
+    <tr><td class="paramname">{string}</td><td>[pythonScriptPath=''] - La ruta al script de Python que se debe ejecutar (si usePython es verdadero). </td></tr>
+    <tr><td class="paramname">{Array}</td><td>[filters=[]] - Filtros opcionales que se pasarán al script de Python (si usePython es verdadero). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;Object[]&gt;} Los datos procesados, limpios y, si es necesario, filtrados por Python. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">{Error}</td><td>Lanza un error si algo falla al procesar los datos o ejecutar el script de Python. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a29ad9b71a48db8955abcf0f81f36b692" name="a29ad9b71a48db8955abcf0f81f36b692"></a>
@@ -169,6 +190,23 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ejecuta un script de Python para procesar los datos y retornar el resultado. </p>
+<p>@function runPythonScript </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object[]}</td><td>data - Los datos a procesar por el script de Python. </td></tr>
+    <tr><td class="paramname">{string}</td><td>pythonScriptPath - La ruta al script de Python. </td></tr>
+    <tr><td class="paramname">{Array}</td><td>filters - Filtros opcionales a pasar al script de Python. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;Object&gt;} Los datos procesados por el script de Python. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">{Error}</td><td>Lanza un error si el script de Python falla o la salida no es un JSON válido. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

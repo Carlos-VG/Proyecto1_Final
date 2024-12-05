@@ -4,9 +4,9 @@
 \begin{DoxyCompactItemize}
 \item 
 function async \mbox{\hyperlink{clean_rows_8js_aeec3b41601994db873238e7cbee677e5}{clean\+Data}} (data, columns, use\+Python=false, \mbox{\hyperlink{display1_2routes_8js_a32ea981d87bebb342bed590a76f5dbef}{python\+Script\+Path}}=\textquotesingle{}\textquotesingle{}, \mbox{\hyperlink{display1_2routes_8js_aff96fd534d6ddd21a38c3e8e5f9a17c8}{filters}}=\mbox{[}$\,$\mbox{]})
-\item 
+\begin{DoxyCompactList}\small\item\em Limpia los datos eliminando solo las columnas necesarias y opcionalmente procesa los datos con un script de Python. \end{DoxyCompactList}\item 
 function \mbox{\hyperlink{clean_rows_8js_a29ad9b71a48db8955abcf0f81f36b692}{run\+Python\+Script}} (data, \mbox{\hyperlink{display1_2routes_8js_a32ea981d87bebb342bed590a76f5dbef}{python\+Script\+Path}}, \mbox{\hyperlink{display1_2routes_8js_aff96fd534d6ddd21a38c3e8e5f9a17c8}{filters}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Ejecuta un script de Python para procesar los datos y retornar el resultado. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,12 +23,58 @@ module \mbox{\hyperlink{clean_rows_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{export
 {\footnotesize\ttfamily \label{clean_rows_8js_aeec3b41601994db873238e7cbee677e5} 
 function async clean\+Data (\begin{DoxyParamCaption}\item[{}]{data}{, }\item[{}]{columns}{, }\item[{}]{use\+Python}{ = {\ttfamily false}, }\item[{}]{python\+Script\+Path}{ = {\ttfamily \textquotesingle{}\textquotesingle{}}, }\item[{}]{filters}{ = {\ttfamily \mbox{[}\mbox{]}}}\end{DoxyParamCaption})}
 
+
+
+Limpia los datos eliminando solo las columnas necesarias y opcionalmente procesa los datos con un script de Python. 
+
+@async @function clean\+Data 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & data -\/ Los datos a limpiar, que contienen objetos con campos a filtrar. \\
+\hline
+{\em \{\+Array$<$string$>$\}} & columns -\/ Las columnas que deben mantenerse en los objetos de datos. \\
+\hline
+{\em \{boolean\}} & \mbox{[}use\+Python=false\mbox{]} -\/ Si es verdadero, se ejecuta un script de Python para procesar los datos. \\
+\hline
+{\em \{string\}} & \mbox{[}python\+Script\+Path=\textquotesingle{}\textquotesingle{}\mbox{]} -\/ La ruta al script de Python que se debe ejecutar (si use\+Python es verdadero). \\
+\hline
+{\em \{\+Array\}} & \mbox{[}filters=\mbox{[}\mbox{]}\mbox{]} -\/ Filtros opcionales que se pasarán al script de Python (si use\+Python es verdadero). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object\mbox{[}$\,$\mbox{]}$>$\} Los datos procesados, limpios y, si es necesario, filtrados por Python. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Lanza un error si algo falla al procesar los datos o ejecutar el script de Python. \\
+\hline
+\end{DoxyExceptions}
 \Hypertarget{clean_rows_8js_a29ad9b71a48db8955abcf0f81f36b692}\index{cleanRows.js@{cleanRows.js}!runPythonScript@{runPythonScript}}
 \index{runPythonScript@{runPythonScript}!cleanRows.js@{cleanRows.js}}
 \doxysubsubsection{\texorpdfstring{runPythonScript()}{runPythonScript()}}
 {\footnotesize\ttfamily \label{clean_rows_8js_a29ad9b71a48db8955abcf0f81f36b692} 
 function run\+Python\+Script (\begin{DoxyParamCaption}\item[{}]{data}{, }\item[{}]{python\+Script\+Path}{, }\item[{}]{filters}{}\end{DoxyParamCaption})}
 
+
+
+Ejecuta un script de Python para procesar los datos y retornar el resultado. 
+
+@function run\+Python\+Script 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\mbox{[}$\,$\mbox{]}\}} & data -\/ Los datos a procesar por el script de Python. \\
+\hline
+{\em \{string\}} & python\+Script\+Path -\/ La ruta al script de Python. \\
+\hline
+{\em \{\+Array\}} & filters -\/ Filtros opcionales a pasar al script de Python. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} Los datos procesados por el script de Python. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Lanza un error si el script de Python falla o la salida no es un JSON válido. \\
+\hline
+\end{DoxyExceptions}
 
 
 \doxysubsection{Variable Documentation}

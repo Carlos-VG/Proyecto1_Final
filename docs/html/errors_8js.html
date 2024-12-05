@@ -98,12 +98,11 @@ $(function(){ initResizable(false); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9f754457907e4240b8bb79146a930374" id="r_a9f754457907e4240b8bb79146a930374"><td class="memItemLeft" align="right" valign="top">function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f754457907e4240b8bb79146a930374">errors</a> (err, req, res, next)</td></tr>
+<tr class="memdesc:a9f754457907e4240b8bb79146a930374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Middleware para manejar errores en la aplicación.  <br /></td></tr>
 <tr class="separator:a9f754457907e4240b8bb79146a930374"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab3ecf49a87b7e7dee08eac226b1cf4f4" id="r_ab3ecf49a87b7e7dee08eac226b1cf4f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="clean_rows_8js.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3ecf49a87b7e7dee08eac226b1cf4f4">respuesta</a> = require('./<a class="el" href="auth_2routes_8js.html#a16b92b2570e8b21eb9527a05b4f97085">answers</a>')</td></tr>
-<tr class="separator:ab3ecf49a87b7e7dee08eac226b1cf4f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4072ba4b6b56b0fb6f4801f17ab2b34" id="r_aa4072ba4b6b56b0fb6f4801f17ab2b34"><td class="memItemLeft" align="right" valign="top">module&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4072ba4b6b56b0fb6f4801f17ab2b34">exports</a> = <a class="el" href="#a9f754457907e4240b8bb79146a930374">errors</a></td></tr>
 <tr class="separator:aa4072ba4b6b56b0fb6f4801f17ab2b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -137,6 +136,19 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Middleware para manejar errores en la aplicación. </p>
+<p>Este middleware captura los errores que ocurren durante la ejecución de la aplicación, los registra en la consola y responde con un mensaje de error al cliente.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>err - El objeto de error que contiene información sobre el error ocurrido. </td></tr>
+    <tr><td class="paramname">{Object}</td><td>req - El objeto de solicitud de Express. </td></tr>
+    <tr><td class="paramname">{Object}</td><td>res - El objeto de respuesta de Express. </td></tr>
+    <tr><td class="paramname">{Function}</td><td>next - La función que pasa el control al siguiente middleware. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{void} - No devuelve nada, solo maneja el error y envía la respuesta. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -148,20 +160,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">module exports = <a class="el" href="#a9f754457907e4240b8bb79146a930374">errors</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab3ecf49a87b7e7dee08eac226b1cf4f4" name="ab3ecf49a87b7e7dee08eac226b1cf4f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ecf49a87b7e7dee08eac226b1cf4f4">&#9670;&#160;</a></span>respuesta</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="clean_rows_8js.html#a92b303b76a3f942ea819498907d5e83c">const</a> respuesta = require('./<a class="el" href="auth_2routes_8js.html#a16b92b2570e8b21eb9527a05b4f97085">answers</a>')</td>
         </tr>
       </table>
 </div><div class="memdoc">

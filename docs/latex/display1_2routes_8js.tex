@@ -4,7 +4,7 @@
 \begin{DoxyCompactItemize}
 \item 
 function async \mbox{\hyperlink{display1_2routes_8js_af9814a7afe02944c08e8b8d33726e344}{get\+All}} (req, res, next)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Controlador que maneja la obtención de los datos de usuario, la limpieza de los datos y el retorno de la respuesta con los datos procesados. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,6 +39,22 @@ module \mbox{\hyperlink{display1_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{
 {\footnotesize\ttfamily \label{display1_2routes_8js_af9814a7afe02944c08e8b8d33726e344} 
 function async get\+All (\begin{DoxyParamCaption}\item[{}]{req}{, }\item[{}]{res}{, }\item[{}]{next}{}\end{DoxyParamCaption})}
 
+
+
+Controlador que maneja la obtención de los datos de usuario, la limpieza de los datos y el retorno de la respuesta con los datos procesados. 
+
+@async @function get\+All 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & req -\/ El objeto de solicitud HTTP. \\
+\hline
+{\em \{\+Object\}} & res -\/ El objeto de respuesta HTTP. \\
+\hline
+{\em \{\+Function\}} & next -\/ La función para pasar el control al siguiente middleware. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$void$>$\} Responde con los datos procesados o un error en caso de fallo. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Variable Documentation}
@@ -79,7 +95,6 @@ function async get\+All (\begin{DoxyParamCaption}\item[{}]{req}{, }\item[{}]{res
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'org\_name'},}
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'service\_name'},}
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'operational\_status'},}
-\DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{]}
 
 \end{DoxyCode}
@@ -107,7 +122,6 @@ module exports = \mbox{\hyperlink{auth_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'org\_name'},}
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'service\_name'},}
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'operational\_status'},}
-\DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{]}
 
 \end{DoxyCode}

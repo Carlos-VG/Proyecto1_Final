@@ -4,7 +4,7 @@
 \begin{DoxyCompactItemize}
 \item 
 function async \mbox{\hyperlink{display6_2routes_8js_af9814a7afe02944c08e8b8d33726e344}{get\+All}} (req, res, next)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Función que obtiene los datos de las solicitudes de usuario y los procesa. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,6 +39,22 @@ module \mbox{\hyperlink{display6_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{
 {\footnotesize\ttfamily \label{display6_2routes_8js_af9814a7afe02944c08e8b8d33726e344} 
 function async get\+All (\begin{DoxyParamCaption}\item[{}]{req}{, }\item[{}]{res}{, }\item[{}]{next}{}\end{DoxyParamCaption})}
 
+
+
+Función que obtiene los datos de las solicitudes de usuario y los procesa. 
+
+@async @function 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & req -\/ El objeto de solicitud de Express. \\
+\hline
+{\em \{\+Object\}} & res -\/ El objeto de respuesta de Express. \\
+\hline
+{\em \{\+Function\}} & next -\/ La función {\ttfamily next} para pasar al siguiente middleware si ocurre un error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$void$>$\} -\/ Devuelve una promesa que resuelve la respuesta HTTP. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Variable Documentation}

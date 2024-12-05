@@ -98,6 +98,7 @@ $(function(){ initResizable(false); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af9814a7afe02944c08e8b8d33726e344" id="r_af9814a7afe02944c08e8b8d33726e344"><td class="memItemLeft" align="right" valign="top">function async&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9814a7afe02944c08e8b8d33726e344">getAll</a> (req, res, next)</td></tr>
+<tr class="memdesc:af9814a7afe02944c08e8b8d33726e344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controlador que maneja la obtención de los datos de usuario, la limpieza de los datos y el retorno de la respuesta con los datos procesados.  <br /></td></tr>
 <tr class="separator:af9814a7afe02944c08e8b8d33726e344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -149,6 +150,17 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Controlador que maneja la obtención de los datos de usuario, la limpieza de los datos y el retorno de la respuesta con los datos procesados. </p>
+<p>@async @function getAll </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>req - El objeto de solicitud HTTP. </td></tr>
+    <tr><td class="paramname">{Object}</td><td>res - El objeto de respuesta HTTP. </td></tr>
+    <tr><td class="paramname">{Function}</td><td>next - La función para pasar el control al siguiente middleware. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;void&gt;} Responde con los datos procesados o un error en caso de fallo. </dd></dl>
 
 </div>
 </div>
@@ -217,7 +229,6 @@ Variables</h2></td></tr>
 <div class="line">    <span class="stringliteral">&#39;org_name&#39;</span>,</div>
 <div class="line">    <span class="stringliteral">&#39;service_name&#39;</span>,</div>
 <div class="line">    <span class="stringliteral">&#39;operational_status&#39;</span>,</div>
-<div class="line">    </div>
 <div class="line">]</div>
 </div><!-- fragment -->
 </div>
@@ -265,7 +276,6 @@ Variables</h2></td></tr>
 <div class="line">    <span class="stringliteral">&#39;org_name&#39;</span>,</div>
 <div class="line">    <span class="stringliteral">&#39;service_name&#39;</span>,</div>
 <div class="line">    <span class="stringliteral">&#39;operational_status&#39;</span>,</div>
-<div class="line">    </div>
 <div class="line">]</div>
 </div><!-- fragment -->
 </div>

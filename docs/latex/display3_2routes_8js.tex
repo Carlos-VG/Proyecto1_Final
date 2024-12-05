@@ -4,7 +4,7 @@
 \begin{DoxyCompactItemize}
 \item 
 function async \mbox{\hyperlink{display3_2routes_8js_af9814a7afe02944c08e8b8d33726e344}{get\+All}} (req, res, next)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Obtiene los datos filtrados y procesados, luego responde con los datos limpios. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,9 +23,9 @@ function async \mbox{\hyperlink{display3_2routes_8js_af9814a7afe02944c08e8b8d337
 \mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367}{router}} = express.\+Router()
 \item 
 \mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_acbf93767530336ecf1d8bda50f98398d}{desired\+Columns}}
-\item 
+\begin{DoxyCompactList}\small\item\em Columnas deseadas para filtrar los datos. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_a32ea981d87bebb342bed590a76f5dbef}{python\+Script\+Path}} = path.\+join(\+\_\+\+\_\+dirname, \textquotesingle{}../../data\+Processing/scripts/script3.\+py\textquotesingle{})
-\item 
+\begin{DoxyCompactList}\small\item\em Ruta del script de Python utilizado para procesar los datos. \end{DoxyCompactList}\item 
 module \mbox{\hyperlink{display3_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{exports}} = \mbox{\hyperlink{auth_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367}{router}}
 \end{DoxyCompactItemize}
 
@@ -37,6 +37,27 @@ module \mbox{\hyperlink{display3_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{
 {\footnotesize\ttfamily \label{display3_2routes_8js_af9814a7afe02944c08e8b8d33726e344} 
 function async get\+All (\begin{DoxyParamCaption}\item[{}]{req}{, }\item[{}]{res}{, }\item[{}]{next}{}\end{DoxyParamCaption})}
 
+
+
+Obtiene los datos filtrados y procesados, luego responde con los datos limpios. 
+
+@async @function 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & req -\/ El objeto de solicitud. \\
+\hline
+{\em \{\+Object\}} & res -\/ El objeto de respuesta. \\
+\hline
+{\em \{\+Function\}} & next -\/ El siguiente middleware en la cadena. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$void$>$\} Responde con los datos limpios. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Si ocurre un error al obtener o procesar los datos. \\
+\hline
+\end{DoxyExceptions}
 
 
 \doxysubsection{Variable Documentation}
@@ -78,7 +99,11 @@ function async get\+All (\begin{DoxyParamCaption}\item[{}]{req}{, }\item[{}]{res
 \DoxyCodeLine{]}
 
 \end{DoxyCode}
-\Hypertarget{display3_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}\index{routes.js@{routes.js}!exports@{exports}}
+
+
+Columnas deseadas para filtrar los datos. 
+
+@const \{Array$<$string$>$\} desired\+Columns -\/ Las columnas que se desean conservar de los datos. \Hypertarget{display3_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}\index{routes.js@{routes.js}!exports@{exports}}
 \index{exports@{exports}!routes.js@{routes.js}}
 \doxysubsubsection{\texorpdfstring{exports}{exports}}
 {\footnotesize\ttfamily \label{display3_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34} 
@@ -102,7 +127,11 @@ module exports = \mbox{\hyperlink{auth_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72
 {\footnotesize\ttfamily \label{display3_2routes_8js_a32ea981d87bebb342bed590a76f5dbef} 
 \mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} python\+Script\+Path = path.\+join(\+\_\+\+\_\+dirname, \textquotesingle{}../../data\+Processing/scripts/script3.\+py\textquotesingle{})}
 
-\Hypertarget{display3_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367}\index{routes.js@{routes.js}!router@{router}}
+
+
+Ruta del script de Python utilizado para procesar los datos. 
+
+@const \{string\} python\+Script\+Path -\/ La ruta al script de Python que se ejecutará. \Hypertarget{display3_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367}\index{routes.js@{routes.js}!router@{router}}
 \index{router@{router}!routes.js@{routes.js}}
 \doxysubsubsection{\texorpdfstring{router}{router}}
 {\footnotesize\ttfamily \label{display3_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367} 

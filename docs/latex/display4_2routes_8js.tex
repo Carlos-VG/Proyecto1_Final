@@ -4,7 +4,7 @@
 \begin{DoxyCompactItemize}
 \item 
 function async \mbox{\hyperlink{display4_2routes_8js_af9814a7afe02944c08e8b8d33726e344}{get\+All}} (req, res, next)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Controlador para obtener todos los elementos relacionados con solicitudes de usuario y limpiar los datos. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,6 +39,24 @@ module \mbox{\hyperlink{display4_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{
 {\footnotesize\ttfamily \label{display4_2routes_8js_af9814a7afe02944c08e8b8d33726e344} 
 function async get\+All (\begin{DoxyParamCaption}\item[{}]{req}{, }\item[{}]{res}{, }\item[{}]{next}{}\end{DoxyParamCaption})}
 
+
+
+Controlador para obtener todos los elementos relacionados con solicitudes de usuario y limpiar los datos. 
+
+@async @function 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & req -\/ El objeto de solicitud de Express, que contiene los parámetros del usuario. \\
+\hline
+{\em \{\+Object\}} & res -\/ El objeto de respuesta de Express, que se utiliza para devolver los resultados. \\
+\hline
+{\em \{\+Function\}} & next -\/ Función de devolución de llamada para pasar el control a la siguiente función de middleware. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Si ocurre un error al obtener o limpiar los datos. \\
+\hline
+\end{DoxyExceptions}
 
 
 \doxysubsection{Variable Documentation}
@@ -98,7 +116,7 @@ module exports = \mbox{\hyperlink{auth_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{=\ [,}
+\DoxyCodeLine{=\ [}
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'service\_name'},}
 \DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'operational\_status'}}
 \DoxyCodeLine{]}
