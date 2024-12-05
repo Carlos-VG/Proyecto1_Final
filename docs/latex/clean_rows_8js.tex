@@ -1,0 +1,46 @@
+\doxysection{server/src/data\+Processing/clean\+Data/clean\+Rows.js File Reference}
+\hypertarget{clean_rows_8js}{}\label{clean_rows_8js}\index{server/src/dataProcessing/cleanData/cleanRows.js@{server/src/dataProcessing/cleanData/cleanRows.js}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function async \mbox{\hyperlink{clean_rows_8js_aeec3b41601994db873238e7cbee677e5}{clean\+Data}} (data, columns, use\+Python=false, \mbox{\hyperlink{display1_2routes_8js_a32ea981d87bebb342bed590a76f5dbef}{python\+Script\+Path}}=\textquotesingle{}\textquotesingle{}, \mbox{\hyperlink{display1_2routes_8js_aff96fd534d6ddd21a38c3e8e5f9a17c8}{filters}}=\mbox{[}$\,$\mbox{]})
+\item 
+function \mbox{\hyperlink{clean_rows_8js_a29ad9b71a48db8955abcf0f81f36b692}{run\+Python\+Script}} (data, \mbox{\hyperlink{display1_2routes_8js_a32ea981d87bebb342bed590a76f5dbef}{python\+Script\+Path}}, \mbox{\hyperlink{display1_2routes_8js_aff96fd534d6ddd21a38c3e8e5f9a17c8}{filters}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \{ spawn \} = require(\textquotesingle{}child\+\_\+process\textquotesingle{})
+\item 
+module \mbox{\hyperlink{clean_rows_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{exports}} = \mbox{\hyperlink{display1_2routes_8js_acecbb54f4d39c14b860509a49f4cccd5}{clean\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{clean_rows_8js_aeec3b41601994db873238e7cbee677e5}\index{cleanRows.js@{cleanRows.js}!cleanData@{cleanData}}
+\index{cleanData@{cleanData}!cleanRows.js@{cleanRows.js}}
+\doxysubsubsection{\texorpdfstring{cleanData()}{cleanData()}}
+{\footnotesize\ttfamily \label{clean_rows_8js_aeec3b41601994db873238e7cbee677e5} 
+function async clean\+Data (\begin{DoxyParamCaption}\item[{}]{data}{, }\item[{}]{columns}{, }\item[{}]{use\+Python}{ = {\ttfamily false}, }\item[{}]{python\+Script\+Path}{ = {\ttfamily \textquotesingle{}\textquotesingle{}}, }\item[{}]{filters}{ = {\ttfamily \mbox{[}\mbox{]}}}\end{DoxyParamCaption})}
+
+\Hypertarget{clean_rows_8js_a29ad9b71a48db8955abcf0f81f36b692}\index{cleanRows.js@{cleanRows.js}!runPythonScript@{runPythonScript}}
+\index{runPythonScript@{runPythonScript}!cleanRows.js@{cleanRows.js}}
+\doxysubsubsection{\texorpdfstring{runPythonScript()}{runPythonScript()}}
+{\footnotesize\ttfamily \label{clean_rows_8js_a29ad9b71a48db8955abcf0f81f36b692} 
+function run\+Python\+Script (\begin{DoxyParamCaption}\item[{}]{data}{, }\item[{}]{python\+Script\+Path}{, }\item[{}]{filters}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}\index{cleanRows.js@{cleanRows.js}!const@{const}}
+\index{const@{const}!cleanRows.js@{cleanRows.js}}
+\doxysubsubsection{\texorpdfstring{const}{const}}
+{\footnotesize\ttfamily \label{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c} 
+const \{ spawn \} = require(\textquotesingle{}child\+\_\+process\textquotesingle{})}
+
+\Hypertarget{clean_rows_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}\index{cleanRows.js@{cleanRows.js}!exports@{exports}}
+\index{exports@{exports}!cleanRows.js@{cleanRows.js}}
+\doxysubsubsection{\texorpdfstring{exports}{exports}}
+{\footnotesize\ttfamily \label{clean_rows_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34} 
+module exports = \mbox{\hyperlink{display1_2routes_8js_acecbb54f4d39c14b860509a49f4cccd5}{clean\+Data}}}
+

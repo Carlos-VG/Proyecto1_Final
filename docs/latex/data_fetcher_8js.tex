@@ -1,0 +1,71 @@
+\doxysection{server/src/central\+Access/data\+Fetcher.js File Reference}
+\hypertarget{data_fetcher_8js}{}\label{data_fetcher_8js}\index{server/src/centralAccess/dataFetcher.js@{server/src/centralAccess/dataFetcher.js}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function async \mbox{\hyperlink{data_fetcher_8js_ad2cbb20961d9814ab5f99a1f9b837d42}{get\+All}} (class\+Name, key, username, password, operation=\textquotesingle{}core/get\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Realiza una consulta a una API central para obtener datos de una clase específica. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{data_fetcher_8js_af5db5f117eb11c93d27330fd2329dfd0}{axios}} = require(\textquotesingle{}axios\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{data_fetcher_8js_ab3093f9d8507c035b404b9d49bdb40f7}{https}} = require(\textquotesingle{}https\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{data_fetcher_8js_a8c363cc66a1232af11677883f5bd9b00}{config}} = require(\textquotesingle{}../config\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{data_fetcher_8js_ad2cbb20961d9814ab5f99a1f9b837d42}\index{dataFetcher.js@{dataFetcher.js}!getAll@{getAll}}
+\index{getAll@{getAll}!dataFetcher.js@{dataFetcher.js}}
+\doxysubsubsection{\texorpdfstring{getAll()}{getAll()}}
+{\footnotesize\ttfamily \label{data_fetcher_8js_ad2cbb20961d9814ab5f99a1f9b837d42} 
+function async get\+All (\begin{DoxyParamCaption}\item[{}]{class\+Name}{, }\item[{}]{key}{, }\item[{}]{username}{, }\item[{}]{password}{, }\item[{}]{operation}{ = {\ttfamily \textquotesingle{}core/get\textquotesingle{}}}\end{DoxyParamCaption})}
+
+
+
+Realiza una consulta a una API central para obtener datos de una clase específica. 
+
+@async @function get\+All 
+\begin{DoxyParams}{Parameters}
+{\em \{string\}} & class\+Name -\/ El nombre de la clase que se desea consultar. \\
+\hline
+{\em \{string\}} & key -\/ La clave para filtrar los resultados. \\
+\hline
+{\em \{string\}} & username -\/ El nombre de usuario para la autenticación básica. \\
+\hline
+{\em \{string\}} & password -\/ La contraseña para la autenticación básica. \\
+\hline
+{\em \{string\}} & \mbox{[}operation=\textquotesingle{}core/get\textquotesingle{}\mbox{]} -\/ La operación a realizar (por defecto es \textquotesingle{}core/get\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} Los datos obtenidos de la API en formato JSON. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Lanza un error si la solicitud falla o excede el tiempo de espera. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{data_fetcher_8js_af5db5f117eb11c93d27330fd2329dfd0}\index{dataFetcher.js@{dataFetcher.js}!axios@{axios}}
+\index{axios@{axios}!dataFetcher.js@{dataFetcher.js}}
+\doxysubsubsection{\texorpdfstring{axios}{axios}}
+{\footnotesize\ttfamily \label{data_fetcher_8js_af5db5f117eb11c93d27330fd2329dfd0} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} axios = require(\textquotesingle{}axios\textquotesingle{})}
+
+\Hypertarget{data_fetcher_8js_a8c363cc66a1232af11677883f5bd9b00}\index{dataFetcher.js@{dataFetcher.js}!config@{config}}
+\index{config@{config}!dataFetcher.js@{dataFetcher.js}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \label{data_fetcher_8js_a8c363cc66a1232af11677883f5bd9b00} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} config = require(\textquotesingle{}../config\textquotesingle{})}
+
+\Hypertarget{data_fetcher_8js_ab3093f9d8507c035b404b9d49bdb40f7}\index{dataFetcher.js@{dataFetcher.js}!https@{https}}
+\index{https@{https}!dataFetcher.js@{dataFetcher.js}}
+\doxysubsubsection{\texorpdfstring{https}{https}}
+{\footnotesize\ttfamily \label{data_fetcher_8js_ab3093f9d8507c035b404b9d49bdb40f7} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} https = require(\textquotesingle{}https\textquotesingle{})}
+

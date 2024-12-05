@@ -1,0 +1,116 @@
+\doxysection{server/src/modules/display3/routes.js File Reference}
+\hypertarget{display3_2routes_8js}{}\label{display3_2routes_8js}\index{server/src/modules/display3/routes.js@{server/src/modules/display3/routes.js}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function async \mbox{\hyperlink{display3_2routes_8js_af9814a7afe02944c08e8b8d33726e344}{get\+All}} (req, res, next)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_a81e570c198204c57e1ebcace4f4e6dad}{express}} = require(\textquotesingle{}express\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_a1fdc7709faf62dce60620fb3f9d3453c}{path}} = require(\textquotesingle{}path\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_a16b92b2570e8b21eb9527a05b4f97085}{answers}} = require(\textquotesingle{}../../red/answers\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_aead6274aa5adf4e7e42140d323d76839}{controller}} = require(\textquotesingle{}./index\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_acecbb54f4d39c14b860509a49f4cccd5}{clean\+Data}} = require(\textquotesingle{}../../data\+Processing/clean\+Data/clean\+Rows\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_a9e7a3e1d2ba14742b0181c07563664e3}{security}} = require(\textquotesingle{}../../middleware/security\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367}{router}} = express.\+Router()
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_acbf93767530336ecf1d8bda50f98398d}{desired\+Columns}}
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{display3_2routes_8js_a32ea981d87bebb342bed590a76f5dbef}{python\+Script\+Path}} = path.\+join(\+\_\+\+\_\+dirname, \textquotesingle{}../../data\+Processing/scripts/script3.\+py\textquotesingle{})
+\item 
+module \mbox{\hyperlink{display3_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{exports}} = \mbox{\hyperlink{auth_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367}{router}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{display3_2routes_8js_af9814a7afe02944c08e8b8d33726e344}\index{routes.js@{routes.js}!getAll@{getAll}}
+\index{getAll@{getAll}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{getAll()}{getAll()}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_af9814a7afe02944c08e8b8d33726e344} 
+function async get\+All (\begin{DoxyParamCaption}\item[{}]{req}{, }\item[{}]{res}{, }\item[{}]{next}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{display3_2routes_8js_a16b92b2570e8b21eb9527a05b4f97085}\index{routes.js@{routes.js}!answers@{answers}}
+\index{answers@{answers}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{answers}{answers}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_a16b92b2570e8b21eb9527a05b4f97085} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} answers = require(\textquotesingle{}../../red/answers\textquotesingle{})}
+
+\Hypertarget{display3_2routes_8js_acecbb54f4d39c14b860509a49f4cccd5}\index{routes.js@{routes.js}!cleanData@{cleanData}}
+\index{cleanData@{cleanData}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{cleanData}{cleanData}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_acecbb54f4d39c14b860509a49f4cccd5} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} clean\+Data = require(\textquotesingle{}../../data\+Processing/clean\+Data/clean\+Rows\textquotesingle{})}
+
+\Hypertarget{display3_2routes_8js_aead6274aa5adf4e7e42140d323d76839}\index{routes.js@{routes.js}!controller@{controller}}
+\index{controller@{controller}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_aead6274aa5adf4e7e42140d323d76839} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} controller = require(\textquotesingle{}./index\textquotesingle{})}
+
+\Hypertarget{display3_2routes_8js_acbf93767530336ecf1d8bda50f98398d}\index{routes.js@{routes.js}!desiredColumns@{desiredColumns}}
+\index{desiredColumns@{desiredColumns}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{desiredColumns}{desiredColumns}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_acbf93767530336ecf1d8bda50f98398d} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} desired\+Columns}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'service\_name'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'servicesubcategory\_name'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'time\_spent'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'start\_date'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'last\_update'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'close\_date'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'assignment\_date'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'resolution\_date'}}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{display3_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}\index{routes.js@{routes.js}!exports@{exports}}
+\index{exports@{exports}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{exports}{exports}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34} 
+module exports = \mbox{\hyperlink{auth_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367}{router}}}
+
+\Hypertarget{display3_2routes_8js_a81e570c198204c57e1ebcace4f4e6dad}\index{routes.js@{routes.js}!express@{express}}
+\index{express@{express}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{express}{express}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_a81e570c198204c57e1ebcace4f4e6dad} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} express = require(\textquotesingle{}express\textquotesingle{})}
+
+\Hypertarget{display3_2routes_8js_a1fdc7709faf62dce60620fb3f9d3453c}\index{routes.js@{routes.js}!path@{path}}
+\index{path@{path}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_a1fdc7709faf62dce60620fb3f9d3453c} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} path = require(\textquotesingle{}path\textquotesingle{})}
+
+\Hypertarget{display3_2routes_8js_a32ea981d87bebb342bed590a76f5dbef}\index{routes.js@{routes.js}!pythonScriptPath@{pythonScriptPath}}
+\index{pythonScriptPath@{pythonScriptPath}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{pythonScriptPath}{pythonScriptPath}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_a32ea981d87bebb342bed590a76f5dbef} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} python\+Script\+Path = path.\+join(\+\_\+\+\_\+dirname, \textquotesingle{}../../data\+Processing/scripts/script3.\+py\textquotesingle{})}
+
+\Hypertarget{display3_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367}\index{routes.js@{routes.js}!router@{router}}
+\index{router@{router}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_a7f43c2fdec3f5b2b2d8dc821db72c367} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} router = express.\+Router()}
+
+\Hypertarget{display3_2routes_8js_a9e7a3e1d2ba14742b0181c07563664e3}\index{routes.js@{routes.js}!security@{security}}
+\index{security@{security}!routes.js@{routes.js}}
+\doxysubsubsection{\texorpdfstring{security}{security}}
+{\footnotesize\ttfamily \label{display3_2routes_8js_a9e7a3e1d2ba14742b0181c07563664e3} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} security = require(\textquotesingle{}../../middleware/security\textquotesingle{})}
+

@@ -1,0 +1,23 @@
+\doxysection{server/src/data\+Processing/scripts/script6.py File Reference}
+\hypertarget{script6_8py}{}\label{script6_8py}\index{server/src/dataProcessing/scripts/script6.py@{server/src/dataProcessing/scripts/script6.py}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacescript6}{script6}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacescript6_a8bc6797690ce71a54808e88682246ada}{script6.\+analyze\+\_\+operational\+\_\+status}} (json\+\_\+data, \mbox{\hyperlink{namespacescript6_af1c339a25a392bd06d9fc429815965ea}{filters}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacescript6_a8ee0de135e2e48f60ed1294880f10e67}{script6.\+input\+\_\+data}} = json.\+load(sys.\+stdin)
+\item 
+\mbox{\hyperlink{namespacescript6_af1c339a25a392bd06d9fc429815965ea}{script6.\+filters}} = input\+\_\+data.\+get("{}filters"{}, \mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{namespacescript6_a64a8761e7a26a4085196ec3d8ffc28f0}{script6.\+data}} = input\+\_\+data.\+get("{}data"{}, \mbox{\hyperlink{namespacescript6_a8ee0de135e2e48f60ed1294880f10e67}{input\+\_\+data}})
+\item 
+\mbox{\hyperlink{namespacescript6_a072736c4e39bc7d54ca2295835841aec}{script6.\+output\+\_\+data}} = \mbox{\hyperlink{namespacescript6_a8bc6797690ce71a54808e88682246ada}{analyze\+\_\+operational\+\_\+status}}(\mbox{\hyperlink{namespacescript6_a64a8761e7a26a4085196ec3d8ffc28f0}{data}}, \mbox{\hyperlink{namespacescript6_af1c339a25a392bd06d9fc429815965ea}{filters}})
+\end{DoxyCompactItemize}

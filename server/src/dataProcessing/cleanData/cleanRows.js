@@ -1,5 +1,17 @@
 const { spawn } = require('child_process');
 
+/**
+ * Limpia los datos eliminando solo las columnas necesarias y opcionalmente procesa los datos con un script de Python.
+ * @async
+ * @function cleanData
+ * @param {Object} data - Los datos a limpiar, que contienen objetos con campos a filtrar.
+ * @param {Array<string>} columns - Las columnas que deben mantenerse en los objetos de datos.
+ * @param {boolean} [usePython=false] - Si es verdadero, se ejecuta un script de Python para procesar los datos.
+ * @param {string} [pythonScriptPath=''] - La ruta al script de Python que se debe ejecutar (si usePython es verdadero).
+ * @param {Array} [filters=[]] - Filtros opcionales que se pasarán al script de Python (si usePython es verdadero).
+ * @returns {Promise<Object[]>} Los datos procesados, limpios y, si es necesario, filtrados por Python.
+ * @throws {Error} Lanza un error si algo falla al procesar los datos o ejecutar el script de Python.
+ */
 async function cleanData(data, columns, usePython = false, pythonScriptPath = '', filters = []) {
     try {
         const cleanedDataArray = [];
@@ -39,6 +51,15 @@ async function cleanData(data, columns, usePython = false, pythonScriptPath = ''
     }
 }
 
+/**
+ * Ejecuta un script de Python para procesar los datos y retornar el resultado.
+ * @function runPythonScript
+ * @param {Object[]} data - Los datos a procesar por el script de Python.
+ * @param {string} pythonScriptPath - La ruta al script de Python.
+ * @param {Array} filters - Filtros opcionales a pasar al script de Python.
+ * @returns {Promise<Object>} Los datos procesados por el script de Python.
+ * @throws {Error} Lanza un error si el script de Python falla o la salida no es un JSON válido.
+ */
 function runPythonScript(data, pythonScriptPath, filters) {
     return new Promise((resolve, reject) => {
         const pythonProcess = spawn('python', [pythonScriptPath]);
@@ -77,4 +98,8 @@ function runPythonScript(data, pythonScriptPath, filters) {
     });
 }
 
+/**
+ * Exporta la función de limpieza de datos.
+ * @module dataCleaning
+ */
 module.exports = cleanData;

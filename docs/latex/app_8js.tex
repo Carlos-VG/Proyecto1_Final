@@ -1,0 +1,120 @@
+\doxysection{server/src/app.js File Reference}
+\hypertarget{app_8js}{}\label{app_8js}\index{server/src/app.js@{server/src/app.js}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_a81e570c198204c57e1ebcace4f4e6dad}{express}} = require(\textquotesingle{}express\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_af7f3142f4c6fd9582b65f72e50ca8bd5}{morgan}} = require(\textquotesingle{}morgan\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_a2481c912250fa1495a111ba4e7a66d07}{cors}} = require(\textquotesingle{}cors\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_ac324d643324d650702067a93b5612825}{error}} = require(\textquotesingle{}./red/\mbox{\hyperlink{errors_8js_a9f754457907e4240b8bb79146a930374}{errors}}\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_a8c363cc66a1232af11677883f5bd9b00}{config}} = require(\textquotesingle{}./config\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_ae24006db5a243dcdeeb58c174e0bba64}{auth}} = require(\textquotesingle{}./modules/auth/routes\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_af953b35b8742da4baca6b9afe6c8fee9}{display1}} = require(\textquotesingle{}./modules/display1/routes\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_ad8e0b91a101cf40b059058b9472ecbe0}{display2}} = require(\textquotesingle{}./modules/display2/routes\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_ad1e7ea60724fe1b5ebeb59176e056702}{display3}} = require(\textquotesingle{}./modules/display3/routes\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_ae06df3d679afe9f1e922e4eceb774afa}{display4}} = require(\textquotesingle{}./modules/display4/routes\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_af34353c609337c839cff5797c273e015}{display5}} = require(\textquotesingle{}./modules/display5/routes\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_a196b72132b62aa1380207e0059cf4c15}{display6}} = require(\textquotesingle{}./modules/display6/routes\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{app_8js_a61cd714f583f5ea8c02710a85ef32b9c}{app}} = \mbox{\hyperlink{app_8js_a81e570c198204c57e1ebcace4f4e6dad}{express}}()
+\item 
+module \mbox{\hyperlink{app_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{exports}} = \mbox{\hyperlink{app_8js_a61cd714f583f5ea8c02710a85ef32b9c}{app}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{app_8js_a61cd714f583f5ea8c02710a85ef32b9c}\index{app.js@{app.js}!app@{app}}
+\index{app@{app}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \label{app_8js_a61cd714f583f5ea8c02710a85ef32b9c} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} app = \mbox{\hyperlink{app_8js_a81e570c198204c57e1ebcace4f4e6dad}{express}}()}
+
+\Hypertarget{app_8js_ae24006db5a243dcdeeb58c174e0bba64}\index{app.js@{app.js}!auth@{auth}}
+\index{auth@{auth}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{auth}{auth}}
+{\footnotesize\ttfamily \label{app_8js_ae24006db5a243dcdeeb58c174e0bba64} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} auth = require(\textquotesingle{}./modules/auth/routes\textquotesingle{})}
+
+\Hypertarget{app_8js_a8c363cc66a1232af11677883f5bd9b00}\index{app.js@{app.js}!config@{config}}
+\index{config@{config}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \label{app_8js_a8c363cc66a1232af11677883f5bd9b00} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} config = require(\textquotesingle{}./config\textquotesingle{})}
+
+\Hypertarget{app_8js_a2481c912250fa1495a111ba4e7a66d07}\index{app.js@{app.js}!cors@{cors}}
+\index{cors@{cors}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{cors}{cors}}
+{\footnotesize\ttfamily \label{app_8js_a2481c912250fa1495a111ba4e7a66d07} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} cors = require(\textquotesingle{}cors\textquotesingle{})}
+
+\Hypertarget{app_8js_af953b35b8742da4baca6b9afe6c8fee9}\index{app.js@{app.js}!display1@{display1}}
+\index{display1@{display1}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{display1}{display1}}
+{\footnotesize\ttfamily \label{app_8js_af953b35b8742da4baca6b9afe6c8fee9} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} display1 = require(\textquotesingle{}./modules/display1/routes\textquotesingle{})}
+
+\Hypertarget{app_8js_ad8e0b91a101cf40b059058b9472ecbe0}\index{app.js@{app.js}!display2@{display2}}
+\index{display2@{display2}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{display2}{display2}}
+{\footnotesize\ttfamily \label{app_8js_ad8e0b91a101cf40b059058b9472ecbe0} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} display2 = require(\textquotesingle{}./modules/display2/routes\textquotesingle{})}
+
+\Hypertarget{app_8js_ad1e7ea60724fe1b5ebeb59176e056702}\index{app.js@{app.js}!display3@{display3}}
+\index{display3@{display3}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{display3}{display3}}
+{\footnotesize\ttfamily \label{app_8js_ad1e7ea60724fe1b5ebeb59176e056702} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} display3 = require(\textquotesingle{}./modules/display3/routes\textquotesingle{})}
+
+\Hypertarget{app_8js_ae06df3d679afe9f1e922e4eceb774afa}\index{app.js@{app.js}!display4@{display4}}
+\index{display4@{display4}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{display4}{display4}}
+{\footnotesize\ttfamily \label{app_8js_ae06df3d679afe9f1e922e4eceb774afa} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} display4 = require(\textquotesingle{}./modules/display4/routes\textquotesingle{})}
+
+\Hypertarget{app_8js_af34353c609337c839cff5797c273e015}\index{app.js@{app.js}!display5@{display5}}
+\index{display5@{display5}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{display5}{display5}}
+{\footnotesize\ttfamily \label{app_8js_af34353c609337c839cff5797c273e015} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} display5 = require(\textquotesingle{}./modules/display5/routes\textquotesingle{})}
+
+\Hypertarget{app_8js_a196b72132b62aa1380207e0059cf4c15}\index{app.js@{app.js}!display6@{display6}}
+\index{display6@{display6}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{display6}{display6}}
+{\footnotesize\ttfamily \label{app_8js_a196b72132b62aa1380207e0059cf4c15} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} display6 = require(\textquotesingle{}./modules/display6/routes\textquotesingle{})}
+
+\Hypertarget{app_8js_ac324d643324d650702067a93b5612825}\index{app.js@{app.js}!error@{error}}
+\index{error@{error}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily \label{app_8js_ac324d643324d650702067a93b5612825} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} error = require(\textquotesingle{}./red/\mbox{\hyperlink{errors_8js_a9f754457907e4240b8bb79146a930374}{errors}}\textquotesingle{})}
+
+\Hypertarget{app_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}\index{app.js@{app.js}!exports@{exports}}
+\index{exports@{exports}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{exports}{exports}}
+{\footnotesize\ttfamily \label{app_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34} 
+module exports = \mbox{\hyperlink{app_8js_a61cd714f583f5ea8c02710a85ef32b9c}{app}}}
+
+\Hypertarget{app_8js_a81e570c198204c57e1ebcace4f4e6dad}\index{app.js@{app.js}!express@{express}}
+\index{express@{express}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{express}{express}}
+{\footnotesize\ttfamily \label{app_8js_a81e570c198204c57e1ebcace4f4e6dad} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} express = require(\textquotesingle{}express\textquotesingle{})}
+
+\Hypertarget{app_8js_af7f3142f4c6fd9582b65f72e50ca8bd5}\index{app.js@{app.js}!morgan@{morgan}}
+\index{morgan@{morgan}!app.js@{app.js}}
+\doxysubsubsection{\texorpdfstring{morgan}{morgan}}
+{\footnotesize\ttfamily \label{app_8js_af7f3142f4c6fd9582b65f72e50ca8bd5} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} morgan = require(\textquotesingle{}morgan\textquotesingle{})}
+

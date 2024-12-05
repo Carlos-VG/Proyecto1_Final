@@ -1,0 +1,173 @@
+\doxysection{server/auth/index.js File Reference}
+\hypertarget{auth_2index_8js}{}\label{auth_2index_8js}\index{server/auth/index.js@{server/auth/index.js}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{auth_2index_8js_a48016cefa9c48b7b65ec38dc60d93ecf}{asignar\+Token}} (data)
+\begin{DoxyCompactList}\small\item\em Genera un token JWT con los datos proporcionados. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{auth_2index_8js_aae9312e85d326265e89d22c72256c7fd}{verificar\+Token}} (token)
+\begin{DoxyCompactList}\small\item\em Verifica la validez de un token JWT. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{auth_2index_8js_af4dd0558d5a7ac34e1fb91cd2788e20e}{obtener\+Token}} (autorizacion)
+\begin{DoxyCompactList}\small\item\em Obtiene el token de autorización desde un encabezado. \end{DoxyCompactList}\item 
+function \mbox{\hyperlink{auth_2index_8js_ab12d385a4fbadc162bb6486bce7206f4}{decodificar\+Cabecera}} (req)
+\begin{DoxyCompactList}\small\item\em Decodifica el token JWT presente en los encabezados de la solicitud. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{auth_2index_8js_a28364a69dd40b9f996ec82954579392e}{jwt}} = require(\textquotesingle{}jsonwebtoken\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{auth_2index_8js_a8c363cc66a1232af11677883f5bd9b00}{config}} = require(\textquotesingle{}../src/config\textquotesingle{})
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{auth_2index_8js_a9ce7257b12963b8f95a9d1b006d66b8e}{secret}} = config.\+jwt.\+secret
+\item 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{auth_2index_8js_a624b2a7d7f946ce739e29f5c4f543497}{chequear\+Token}}
+\begin{DoxyCompactList}\small\item\em Objeto que contiene métodos relacionados con la verificación de tokens. \end{DoxyCompactList}\item 
+module \mbox{\hyperlink{auth_2index_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}{exports}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{auth_2index_8js_a48016cefa9c48b7b65ec38dc60d93ecf}\index{index.js@{index.js}!asignarToken@{asignarToken}}
+\index{asignarToken@{asignarToken}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{asignarToken()}{asignarToken()}}
+{\footnotesize\ttfamily \label{auth_2index_8js_a48016cefa9c48b7b65ec38dc60d93ecf} 
+function asignar\+Token (\begin{DoxyParamCaption}\item[{}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Genera un token JWT con los datos proporcionados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & data -\/ Datos que se incluirán en el token. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{string\} Token JWT generado. 
+\end{DoxyReturn}
+\Hypertarget{auth_2index_8js_ab12d385a4fbadc162bb6486bce7206f4}\index{index.js@{index.js}!decodificarCabecera@{decodificarCabecera}}
+\index{decodificarCabecera@{decodificarCabecera}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{decodificarCabecera()}{decodificarCabecera()}}
+{\footnotesize\ttfamily \label{auth_2index_8js_ab12d385a4fbadc162bb6486bce7206f4} 
+function decodificar\+Cabecera (\begin{DoxyParamCaption}\item[{}]{req}{}\end{DoxyParamCaption})}
+
+
+
+Decodifica el token JWT presente en los encabezados de la solicitud. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & req -\/ Objeto de solicitud HTTP. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Object\} Datos decodificados del token. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Si no se puede obtener o verificar el token. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{auth_2index_8js_af4dd0558d5a7ac34e1fb91cd2788e20e}\index{index.js@{index.js}!obtenerToken@{obtenerToken}}
+\index{obtenerToken@{obtenerToken}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{obtenerToken()}{obtenerToken()}}
+{\footnotesize\ttfamily \label{auth_2index_8js_af4dd0558d5a7ac34e1fb91cd2788e20e} 
+function obtener\+Token (\begin{DoxyParamCaption}\item[{}]{autorizacion}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene el token de autorización desde un encabezado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{string\}} & autorizacion -\/ Encabezado de autorización (formato "{}\+Bearer $<$token$>$"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{string\} El token extraído del encabezado. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Si no se envía un token o si el formato es incorrecto. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{auth_2index_8js_aae9312e85d326265e89d22c72256c7fd}\index{index.js@{index.js}!verificarToken@{verificarToken}}
+\index{verificarToken@{verificarToken}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{verificarToken()}{verificarToken()}}
+{\footnotesize\ttfamily \label{auth_2index_8js_aae9312e85d326265e89d22c72256c7fd} 
+function verificar\+Token (\begin{DoxyParamCaption}\item[{}]{token}{}\end{DoxyParamCaption})}
+
+
+
+Verifica la validez de un token JWT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{string\}} & token -\/ Token JWT a verificar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Object\} Los datos decodificados del token si es válido. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & Si el token ha expirado o es inválido. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{auth_2index_8js_a624b2a7d7f946ce739e29f5c4f543497}\index{index.js@{index.js}!chequearToken@{chequearToken}}
+\index{chequearToken@{chequearToken}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{chequearToken}{chequearToken}}
+{\footnotesize\ttfamily \label{auth_2index_8js_a624b2a7d7f946ce739e29f5c4f543497} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} chequear\+Token}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ confirmarToken:\ \textcolor{keyword}{function}\ (req)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ decodificado\ =\ \mbox{\hyperlink{auth_2index_8js_ab12d385a4fbadc162bb6486bce7206f4}{decodificarCabecera}}(req);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ decodificado;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Objeto que contiene métodos relacionados con la verificación de tokens. 
+
+\Hypertarget{auth_2index_8js_a8c363cc66a1232af11677883f5bd9b00}\index{index.js@{index.js}!config@{config}}
+\index{config@{config}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \label{auth_2index_8js_a8c363cc66a1232af11677883f5bd9b00} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} config = require(\textquotesingle{}../src/config\textquotesingle{})}
+
+\Hypertarget{auth_2index_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34}\index{index.js@{index.js}!exports@{exports}}
+\index{exports@{exports}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{exports}{exports}}
+{\footnotesize\ttfamily \label{auth_2index_8js_aa4072ba4b6b56b0fb6f4801f17ab2b34} 
+module exports}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{auth_2index_8js_a48016cefa9c48b7b65ec38dc60d93ecf}{asignarToken}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{auth_2index_8js_a624b2a7d7f946ce739e29f5c4f543497}{chequearToken}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{auth_2index_8js_aae9312e85d326265e89d22c72256c7fd}{verificarToken}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{auth_2index_8js_a28364a69dd40b9f996ec82954579392e}\index{index.js@{index.js}!jwt@{jwt}}
+\index{jwt@{jwt}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{jwt}{jwt}}
+{\footnotesize\ttfamily \label{auth_2index_8js_a28364a69dd40b9f996ec82954579392e} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} jwt = require(\textquotesingle{}jsonwebtoken\textquotesingle{})}
+
+\Hypertarget{auth_2index_8js_a9ce7257b12963b8f95a9d1b006d66b8e}\index{index.js@{index.js}!secret@{secret}}
+\index{secret@{secret}!index.js@{index.js}}
+\doxysubsubsection{\texorpdfstring{secret}{secret}}
+{\footnotesize\ttfamily \label{auth_2index_8js_a9ce7257b12963b8f95a9d1b006d66b8e} 
+\mbox{\hyperlink{clean_rows_8js_a92b303b76a3f942ea819498907d5e83c}{const}} secret = config.\+jwt.\+secret}
+
